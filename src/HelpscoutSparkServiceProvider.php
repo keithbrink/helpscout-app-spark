@@ -29,6 +29,8 @@ class HelpscoutSparkServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/helpscout-spark.php', 'helpscout-spark'
+        );
     }
 }

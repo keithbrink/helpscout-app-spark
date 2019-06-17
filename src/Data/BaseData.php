@@ -29,7 +29,7 @@ class BaseData
         }
         $html = '<li class="c-sb-list-item">
             <span class="c-sb-list-item__label">
-            '.$this->getTitle().'
+            '.$this->getName().'
             <span class="'.$span_class.'">'.$this->getValue().'</span>
             </span>
         </li>';

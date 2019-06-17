@@ -1,6 +1,6 @@
 {
     "name": "keithbrink/helpscout-app-spark",
-    "description": "An Helpscout integration package for Laravel Spark that allows you to add information about tickets created by customers in Helpscout.",
+    "description": "A Helpscout integration package for Laravel Spark that allows you to add information about tickets created by customers in Helpscout.",
     "type": "library",
     "license": "MIT",
     "authors": [
