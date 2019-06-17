@@ -1,0 +1,28 @@
+{
+    "name": "keithbrink/helpscout-app-spark",
+    "description": "An Helpscout integration package for Laravel Spark that allows you to add information about tickets created by customers in Helpscout.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Keith Brink",
+            "email": "keith.brink@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "KeithBrink\\HelpscoutSpark\\": "src/"
+        }
+    },
+    "require": {
+        "helpscout/apps": "1.1.*"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KeithBrink\\HelpscoutSpark\\HelpscoutSparkServiceProvider"
+            ]
+        }
+    }
+}
