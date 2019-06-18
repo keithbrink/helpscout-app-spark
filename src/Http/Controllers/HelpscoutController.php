@@ -34,7 +34,7 @@ class HelpscoutController extends BaseController
 
     public function handleWebhooks(Request $request)
     {
-        $webhook = new IncomingWebhook($request, config('helpscout-spark.webhook_secret'));
+        $webhook = IncomingWebhook::makeFromGlobals(config('helpscout-spark.webhook_secret'));
         
         Rules::processRules($webhook);
 
