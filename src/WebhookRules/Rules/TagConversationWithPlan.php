@@ -11,6 +11,7 @@ class TagConversationWithPlan extends BaseRule implements RuleContract {
 
     public $conversation_id;
     public $customer_email;
+    public $tags;
 
     public function __construct()
     {
@@ -24,6 +25,7 @@ class TagConversationWithPlan extends BaseRule implements RuleContract {
         $obj = $webhook->getDataObject();
         $this->conversation_id = $obj->id;
         $this->customer_email = $obj->customer->email;
+        $this->tags = $obj->tags;
     }
 
     public function handle()
@@ -34,9 +36,10 @@ class TagConversationWithPlan extends BaseRule implements RuleContract {
         if($user) {
             $tag_name = $this->removeInterval($user->current_billing_plan);
             
-            $tag = new Tag;
-            $tag->setName($tag_name);
-            $conversation->addTag($tag);
+            $tags = $this->tags;
+            $tags[] = $tag_name;
+
+            $client->conversations()->updateTags($this->conversation_id, $tags);
         }            
     }
 
