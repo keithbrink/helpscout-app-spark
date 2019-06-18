@@ -1,8 +1,8 @@
 <?php
 
-namespace KeithBrink\HelpscoutSpark\Data;
+namespace KeithBrink\HelpscoutSpark\CustomAppData;
 
-class BaseData
+class BaseItem
 {
     public $user_email;
     public $is_badge = false;

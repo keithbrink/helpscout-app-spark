@@ -1,8 +1,8 @@
 <?php
 
-namespace KeithBrink\HelpscoutSpark\Data;
+namespace KeithBrink\HelpscoutSpark\CustomAppData;
 
-interface DataContract {
+interface ItemContract {
 
     /**
      * The title of the data, such as "Subscription"

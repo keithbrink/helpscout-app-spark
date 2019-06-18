@@ -1,11 +1,6 @@
 <?php
 
 return [
-
-    /*
-        Helpscout API key
-     */
-
-    'api_key' => env('HELPSCOUT_SPARK_API_KEY', ''),
-
+    'custom_app_secret' => env('HS_SPARK_CUSTOM_APP_SECRET', ''),
+    'webhook_secret' => env('HS_SPARK_WEBHOOK_SECRET', ''),
 ];

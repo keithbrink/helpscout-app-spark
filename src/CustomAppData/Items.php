@@ -1,8 +1,8 @@
 <?php
 
-namespace KeithBrink\HelpscoutSpark\Data;
+namespace KeithBrink\HelpscoutSpark\CustomAppData;
 
-use KeithBrink\HelpscoutSpark\Data\Items\Plan;
+use KeithBrink\HelpscoutSpark\CustomAppData\Items\Plan;
 
 class Items {
 

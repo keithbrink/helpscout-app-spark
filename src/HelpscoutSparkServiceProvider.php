@@ -32,5 +32,7 @@ class HelpscoutSparkServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/helpscout-spark.php', 'helpscout-spark'
         );
+
+        $this->app->register(\HelpScout\Laravel\HelpScoutServiceProvider::class);
     }
 }

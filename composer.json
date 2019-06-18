@@ -15,7 +15,8 @@
         }
     },
     "require": {
-        "helpscout/apps": "1.1.*"
+        "helpscout/apps": "1.1.*",
+        "helpscout/api-laravel": "~1.0"
     },
     "minimum-stability": "stable",
     "extra": {

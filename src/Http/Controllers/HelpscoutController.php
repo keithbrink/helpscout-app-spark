@@ -4,13 +4,15 @@ namespace KeithBrink\HelpscoutSpark\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use KeithBrink\HelpscoutSpark\Data\Items;
+use HelpScout\Api\Webhooks\IncomingWebhook;
 use HelpScoutApp\DynamicApp;
+use KeithBrink\HelpscoutSpark\WebhookRules\Rules;
 
 class HelpscoutController extends BaseController
 {
-    public function getTicketData()
+    public function getCustomAppData()
     {
-        $helpscout = new DynamicApp(config('helpscout-spark.api_key'));
+        $helpscout = new DynamicApp(config('helpscout-spark.custom_app_secret'));
         if ($helpscout->isSignatureValid()) {
             $customer = $helpscout->getCustomer();
 
@@ -27,6 +29,15 @@ class HelpscoutController extends BaseController
         } else {
             return response('Unauthorized', 403);
         }
+    }
+
+    public function handleWebhooks(Request $request)
+    {
+        $webhook = new IncomingWebhook($request, config('helpscout-spark.webhook_secret'));
+        
+        Rules::processRules($webhook);
+
+        return response('Webhook processed');
     }
 
 }

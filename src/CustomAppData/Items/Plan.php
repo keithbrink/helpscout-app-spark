@@ -1,12 +1,12 @@
 <?php
 
-namespace KeithBrink\HelpscoutSpark\Data\Items;
+namespace KeithBrink\HelpscoutSpark\CustomAppData\Items;
 
 use Laravel\Spark\Spark;
-use KeithBrink\HelpscoutSpark\Data\DataContract;
-use KeithBrink\HelpscoutSpark\Data\BaseData;
+use KeithBrink\HelpscoutSpark\CustomAppData\ItemContract;
+use KeithBrink\HelpscoutSpark\CustomAppData\BaseItem;
 
-class Plan extends BaseData implements DataContract {
+class Plan extends BaseItem implements ItemContract {
     
     public function getName()
     {
