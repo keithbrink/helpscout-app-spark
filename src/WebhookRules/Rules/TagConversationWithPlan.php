@@ -10,6 +10,7 @@ use Laravel\Spark\Spark;
 class TagConversationWithPlan extends BaseRule implements RuleContract {
 
     public $conversation_id;
+    public $customer_email;
 
     public function __construct()
     {
@@ -22,16 +23,17 @@ class TagConversationWithPlan extends BaseRule implements RuleContract {
     {
         $obj = $webhook->getDataObject();
         $this->conversation_id = $obj->id;
+        $this->customer_email = $obj->customer->email;
     }
 
     public function handle()
     {
         $client = app('helpscout');
         $conversation = $client->conversations()->get($this->conversation_id);
-        $customer = $conversation->getPrimaryCustomer();
-        $user = Spark::user()->where('email', $customer->getEmail())->first();
+        $user = Spark::user()->where('email', $this->customer_email)->first();
         if($user) {
-            $tag_name = ucfirst($this->removeInterval($user->current_billing_plan));
+            $tag_name = $this->removeInterval($user->current_billing_plan);
+            
             $tag = new Tag;
             $tag->setName($tag_name);
             $conversation->addTag($tag);
