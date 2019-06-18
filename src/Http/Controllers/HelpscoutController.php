@@ -3,7 +3,7 @@
 namespace KeithBrink\HelpscoutSpark\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use KeithBrink\HelpscoutSpark\Data\Items;
+use KeithBrink\HelpscoutSpark\CustomAppData\Items;
 use HelpScout\Api\Webhooks\IncomingWebhook;
 use HelpScoutApp\DynamicApp;
 use KeithBrink\HelpscoutSpark\WebhookRules\Rules;
