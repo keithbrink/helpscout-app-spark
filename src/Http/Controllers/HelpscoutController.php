@@ -7,6 +7,7 @@ use KeithBrink\HelpscoutSpark\CustomAppData\Items;
 use HelpScout\Api\Webhooks\IncomingWebhook;
 use HelpScoutApp\DynamicApp;
 use KeithBrink\HelpscoutSpark\WebhookRules\Rules;
+use Illuminate\Http\Request;
 
 class HelpscoutController extends BaseController
 {
