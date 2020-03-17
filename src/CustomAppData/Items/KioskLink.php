@@ -1,0 +1,25 @@
+<?php
+
+namespace KeithBrink\HelpscoutSpark\CustomAppData\Items;
+
+use KeithBrink\HelpscoutSpark\CustomAppData\BaseItem;
+use KeithBrink\HelpscoutSpark\CustomAppData\ItemContract;
+use Laravel\Spark\Spark;
+
+class KioskLink extends BaseItem implements ItemContract
+{
+    public function getName()
+    {
+        return 'Kiosk Link';
+    }
+
+    public function getValue()
+    {
+        $user = Spark::user()->where('email', $this->user_email)->first();
+        if ($user) {
+            return '<a href="'.url('/spark/kiosk#/users/'.$user->id).'">'.$user->name.'</a>';
+        } else {
+            return 'Unknown';
+        }
+    }
+}
